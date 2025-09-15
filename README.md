@@ -26,10 +26,8 @@ This Turborepo includes the following packages:
 
 ### Apps and Packages
 
-- `app-a`: A final package that depends on all other packages in the graph and has no dependents. This could resemble an application in your monorepo that consumes everything in your monorepo through its topological tree.
-- `app-b`: Another final package with many dependencies. No dependents, lots of dependencies.
-- `pkg-a`: A package that has all scripts in the root `package.json`.
-- `pkg-b`: A package with _almost_ all scripts in the root `package.json`.
+- `web`: A RedwoodSDK web application
+- `extension`: A browser extension application
 - `tooling-config`: A package to simulate a common configuration used for all of your repository. This could resemble a configuration for tools like TypeScript or ESLint that are installed into all of your packages.
 
 ### Some scripts to try
@@ -37,6 +35,6 @@ This Turborepo includes the following packages:
 If you haven't yet, [install global `turbo`](https://turborepo.com/docs/installing#install-globally) to run tasks.
 
 - `turbo build lint check-types`: Runs all tasks in the default graph.
-- `turbo build`: A basic command to build `app-a` and `app-b` in parallel.
-- `turbo build --filter=app-a`: Building only `app-a` and its dependencies.
+- `turbo build`: A basic command to build all applications in parallel.
+- `turbo build --filter=web`: Building only the web application and its dependencies.
 - `turbo lint`: A basic command for running lints in all packages in parallel.

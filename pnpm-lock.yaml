@@ -12,21 +12,6 @@ importers:
         specifier: ^2.5.6
         version: 2.5.6
 
-  apps/app-a:
-    dependencies:
-      pkg-a:
-        specifier: workspace:*
-        version: link:../../packages/pkg-a
-      tooling-config:
-        specifier: workspace:*
-        version: link:../../packages/tooling-config
-
-  apps/app-b:
-    dependencies:
-      tooling-config:
-        specifier: workspace:*
-        version: link:../../packages/tooling-config
-
   apps/extension:
     dependencies:
       react:
@@ -100,18 +85,6 @@ importers:
       wrangler:
         specifier: ~4.20.5
         version: 4.20.5(@cloudflare/workers-types@4.20250913.0)
-
-  packages/pkg-a:
-    dependencies:
-      tooling-config:
-        specifier: workspace:*
-        version: link:../tooling-config
-
-  packages/pkg-b:
-    dependencies:
-      tooling-config:
-        specifier: workspace:*
-        version: link:../tooling-config
 
   packages/tooling-config: {}
 

@@ -46,7 +46,9 @@ export default defineApp([
     }
   },
   render(Document, [
-    route("/", () => new Response("Hello, World!")),
+    route("/", () => {
+      return <div className="text-red-400">Hello, World!</div>;
+    }),
     route("/protected", [
       ({ ctx }) => {
         if (!ctx.user) {

@@ -31,11 +31,15 @@
     "@prisma/client": "~6.8.2",
     "@simplewebauthn/browser": "^13.1.0",
     "@simplewebauthn/server": "^13.1.1",
-    "rwsdk": "0.3.9"
+    "@tailwindcss/vite": "^4.1.13",
+    "rwsdk": "0.3.9",
+    "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.7.4",
     "@cloudflare/workers-types": "^4.20250407.0",
+    "@repo/tailwind-config": "workspace:^",
+    "@repo/ui": "workspace:^",
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",

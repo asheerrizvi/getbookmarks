@@ -1,13 +1,14 @@
-import { defineApp, ErrorResponse } from "rwsdk/worker";
-import { route, render, prefix } from "rwsdk/router";
 import { Document } from "@/app/Document";
-import { Home } from "@/app/pages/Home";
 import { setCommonHeaders } from "@/app/headers";
+import { Home } from "@/app/pages/Home";
 import { userRoutes } from "@/app/pages/user/routes";
-import { sessions, setupSessionStore } from "./session/store";
-import { Session } from "./session/durableObject";
 import { type User, db, setupDb } from "@/db";
+import { Button } from "@repo/ui/button";
 import { env } from "cloudflare:workers";
+import { prefix, render, route } from "rwsdk/router";
+import { defineApp, ErrorResponse } from "rwsdk/worker";
+import { Session } from "./session/durableObject";
+import { sessions, setupSessionStore } from "./session/store";
 export { SessionDurableObject } from "./session/durableObject";
 
 export type AppContext = {
@@ -47,7 +48,7 @@ export default defineApp([
   },
   render(Document, [
     route("/", () => {
-      return <div className="text-red-400">Hello, World!</div>;
+      return <Button>Save changes</Button>;
     }),
     route("/protected", [
       ({ ctx }) => {

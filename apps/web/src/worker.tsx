@@ -47,13 +47,7 @@ export default defineApp([
     }
   },
   render(Document, [
-    route("/", () => {
-      return (
-        <Card title="Hello!" href="https://google.com">
-          Hello World!
-        </Card>
-      );
-    }),
+    route("/", [Home]),
     route("/protected", [
       ({ ctx }) => {
         if (!ctx.user) {

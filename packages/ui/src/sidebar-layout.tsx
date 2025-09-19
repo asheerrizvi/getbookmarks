@@ -22,17 +22,17 @@ function CloseMenuIcon() {
 
 function MobileSidebar({ open, close, children }: React.PropsWithChildren<{ open: boolean; close: () => void }>) {
   return (
-    <Headless.Dialog open={open} onClose={close} className="lg:hidden">
+    <Headless.Dialog open={open} onClose={close} className="ui:lg:hidden">
       <Headless.DialogBackdrop
         transition
-        className="fixed inset-0 bg-black/30 transition data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"
+        className="ui:fixed ui:inset-0 ui:bg-black/30 ui:transition ui:data-closed:opacity-0 ui:data-enter:duration-300 ui:data-enter:ease-out ui:data-leave:duration-200 ui:data-leave:ease-in"
       />
       <Headless.DialogPanel
         transition
-        className="fixed inset-y-0 w-full max-w-80 p-2 transition duration-300 ease-in-out data-closed:-translate-x-full"
+        className="ui:fixed ui:inset-y-0 ui:w-full ui:max-w-80 ui:p-2 ui:transition ui:duration-300 ui:ease-in-out ui:data-closed:-translate-x-full"
       >
-        <div className="flex h-full flex-col rounded-lg bg-white shadow-xs ring-1 ring-zinc-950/5 dark:bg-zinc-900 dark:ring-white/10">
-          <div className="-mb-3 px-4 pt-3">
+        <div className="ui:flex ui:h-full ui:flex-col ui:rounded-lg ui:bg-white ui:shadow-xs ui:ring-1 ui:ring-zinc-950/5 ui:dark:bg-zinc-900 ui:dark:ring-white/10">
+          <div className="ui:-mb-3 ui:px-4 ui:pt-3">
             <Headless.CloseButton as={NavbarItem} aria-label="Close navigation">
               <CloseMenuIcon />
             </Headless.CloseButton>
@@ -52,9 +52,9 @@ export function SidebarLayout({
   let [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <div className="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950">
+    <div className="ui:relative ui:isolate ui:flex ui:min-h-svh ui:w-full ui:bg-white ui:max-lg:flex-col ui:lg:bg-zinc-100 ui:dark:bg-zinc-900 ui:dark:lg:bg-zinc-950">
       {/* Sidebar on desktop */}
-      <div className="fixed inset-y-0 left-0 w-64 max-lg:hidden">{sidebar}</div>
+      <div className="ui:fixed ui:inset-y-0 ui:left-0 ui:w-64 ui:max-lg:hidden">{sidebar}</div>
 
       {/* Sidebar on mobile */}
       <MobileSidebar open={showSidebar} close={() => setShowSidebar(false)}>
@@ -62,19 +62,19 @@ export function SidebarLayout({
       </MobileSidebar>
 
       {/* Navbar on mobile */}
-      <header className="flex items-center px-4 lg:hidden">
-        <div className="py-2.5">
+      <header className="ui:flex ui:items-center ui:px-4 ui:lg:hidden">
+        <div className="ui:py-2.5">
           <NavbarItem onClick={() => setShowSidebar(true)} aria-label="Open navigation">
             <OpenMenuIcon />
           </NavbarItem>
         </div>
-        <div className="min-w-0 flex-1">{navbar}</div>
+        <div className="ui:min-w-0 ui:flex-1">{navbar}</div>
       </header>
 
       {/* Content */}
-      <main className="flex flex-1 flex-col pb-2 lg:min-w-0 lg:pt-2 lg:pr-2 lg:pl-64">
-        <div className="grow p-6 lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-xs lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
-          <div className="mx-auto max-w-6xl">{children}</div>
+      <main className="ui:flex ui:flex-1 ui:flex-col ui:pb-2 ui:lg:min-w-0 ui:lg:pt-2 ui:lg:pr-2 ui:lg:pl-64">
+        <div className="ui:grow ui:p-6 ui:lg:rounded-lg ui:lg:bg-white ui:lg:p-10 ui:lg:shadow-xs ui:lg:ring-1 ui:lg:ring-zinc-950/5 ui:dark:lg:bg-zinc-900 ui:dark:lg:ring-white/10">
+          <div className="ui:mx-auto ui:max-w-6xl">{children}</div>
         </div>
       </main>
     </div>

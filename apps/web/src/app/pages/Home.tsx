@@ -1,11 +1,9 @@
-import { Card } from "@repo/ui/card";
+import { Button } from "@repo/ui/button";
 import { RequestInfo } from "rwsdk/worker";
 
 export function Home({ ctx }: RequestInfo) {
   return (
-    <Card title="Hi Asheer!" href="https://asheerrizvi.com">
-      <p className="text-neutral-600">Welcome to this website!</p>
-    </Card>
+    <Button>Save changes</Button>
 
     // <div>
     //   <p>

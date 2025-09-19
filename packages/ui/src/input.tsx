@@ -1,36 +1,46 @@
-import * as Headless from '@headlessui/react'
-import clsx from 'clsx'
-import React, { forwardRef } from 'react'
+import * as Headless from "@headlessui/react";
+import clsx from "clsx";
+import React, { forwardRef } from "react";
 
-export function InputGroup({ children }: React.ComponentPropsWithoutRef<'span'>) {
+export function InputGroup({
+  children,
+}: React.ComponentPropsWithoutRef<"span">) {
   return (
     <span
       data-slot="control"
       className={clsx(
-        'relative isolate block',
-        'has-[[data-slot=icon]:first-child]:[&_input]:pl-10 has-[[data-slot=icon]:last-child]:[&_input]:pr-10 sm:has-[[data-slot=icon]:first-child]:[&_input]:pl-8 sm:has-[[data-slot=icon]:last-child]:[&_input]:pr-8',
-        '*:data-[slot=icon]:pointer-events-none *:data-[slot=icon]:absolute *:data-[slot=icon]:top-3 *:data-[slot=icon]:z-10 *:data-[slot=icon]:size-5 sm:*:data-[slot=icon]:top-2.5 sm:*:data-[slot=icon]:size-4',
-        '[&>[data-slot=icon]:first-child]:left-3 sm:[&>[data-slot=icon]:first-child]:left-2.5 [&>[data-slot=icon]:last-child]:right-3 sm:[&>[data-slot=icon]:last-child]:right-2.5',
-        '*:data-[slot=icon]:text-zinc-500 dark:*:data-[slot=icon]:text-zinc-400'
+        "ui:relative ui:isolate ui:block",
+        "ui:has-[[data-slot=icon]:first-child]:[&_input]:pl-10 ui:has-[[data-slot=icon]:last-child]:[&_input]:pr-10 ui:sm:has-[[data-slot=icon]:first-child]:[&_input]:pl-8 ui:sm:has-[[data-slot=icon]:last-child]:[&_input]:pr-8",
+        "ui:*:data-[slot=icon]:pointer-events-none ui:*:data-[slot=icon]:absolute ui:*:data-[slot=icon]:top-3 ui:*:data-[slot=icon]:z-10 ui:*:data-[slot=icon]:size-5 ui:sm:*:data-[slot=icon]:top-2.5 ui:sm:*:data-[slot=icon]:size-4",
+        "ui:[&>[data-slot=icon]:first-child]:left-3 ui:sm:[&>[data-slot=icon]:first-child]:left-2.5 ui:[&>[data-slot=icon]:last-child]:right-3 ui:sm:[&>[data-slot=icon]:last-child]:right-2.5",
+        "ui:*:data-[slot=icon]:text-zinc-500 ui:dark:*:data-[slot=icon]:text-zinc-400",
       )}
     >
       {children}
     </span>
-  )
+  );
 }
 
-const dateTypes = ['date', 'datetime-local', 'month', 'time', 'week']
-type DateType = (typeof dateTypes)[number]
+const dateTypes = ["date", "datetime-local", "month", "time", "week"];
+type DateType = (typeof dateTypes)[number];
 
 export const Input = forwardRef(function Input(
   {
     className,
     ...props
   }: {
-    className?: string
-    type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url' | DateType
-  } & Omit<Headless.InputProps, 'as' | 'className'>,
-  ref: React.ForwardedRef<HTMLInputElement>
+    className?: string;
+    type?:
+      | "email"
+      | "number"
+      | "password"
+      | "search"
+      | "tel"
+      | "text"
+      | "url"
+      | DateType;
+  } & Omit<Headless.InputProps, "as" | "className">,
+  ref: React.ForwardedRef<HTMLInputElement>,
 ) {
   return (
     <span
@@ -38,15 +48,15 @@ export const Input = forwardRef(function Input(
       className={clsx([
         className,
         // Basic layout
-        'relative block w-full',
+        "ui:relative ui:block ui:w-full",
         // Background color + shadow applied to inset pseudo element, so shadow blends with border in light mode
-        'before:absolute before:inset-px before:rounded-[calc(var(--radius-lg)-1px)] before:bg-white before:shadow-sm',
+        "ui:before:absolute ui:before:inset-px ui:before:rounded-[calc(var(--radius-lg)-1px)] ui:before:bg-white ui:before:shadow-sm",
         // Background color is moved to control and shadow is removed in dark mode so hide `before` pseudo
-        'dark:before:hidden',
+        "ui:dark:before:hidden",
         // Focus ring
-        'after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-transparent after:ring-inset sm:focus-within:after:ring-2 sm:focus-within:after:ring-blue-500',
+        "ui:after:pointer-events-none ui:after:absolute ui:after:inset-0 ui:after:rounded-lg ui:after:ring-transparent ui:after:ring-inset ui:sm:focus-within:after:ring-2 ui:sm:focus-within:after:ring-blue-500",
         // Disabled state
-        'has-data-disabled:opacity-50 has-data-disabled:before:bg-zinc-950/5 has-data-disabled:before:shadow-none',
+        "ui:has-data-disabled:opacity-50 ui:has-data-disabled:before:bg-zinc-950/5 ui:has-data-disabled:before:shadow-none",
       ])}
     >
       <Headless.Input
@@ -56,37 +66,37 @@ export const Input = forwardRef(function Input(
           // Date classes
           props.type &&
             dateTypes.includes(props.type) && [
-              '[&::-webkit-datetime-edit-fields-wrapper]:p-0',
-              '[&::-webkit-date-and-time-value]:min-h-[1.5em]',
-              '[&::-webkit-datetime-edit]:inline-flex',
-              '[&::-webkit-datetime-edit]:p-0',
-              '[&::-webkit-datetime-edit-year-field]:p-0',
-              '[&::-webkit-datetime-edit-month-field]:p-0',
-              '[&::-webkit-datetime-edit-day-field]:p-0',
-              '[&::-webkit-datetime-edit-hour-field]:p-0',
-              '[&::-webkit-datetime-edit-minute-field]:p-0',
-              '[&::-webkit-datetime-edit-second-field]:p-0',
-              '[&::-webkit-datetime-edit-millisecond-field]:p-0',
-              '[&::-webkit-datetime-edit-meridiem-field]:p-0',
+              "ui:[&::-webkit-datetime-edit-fields-wrapper]:p-0",
+              "ui:[&::-webkit-date-and-time-value]:min-h-[1.5em]",
+              "ui:[&::-webkit-datetime-edit]:inline-flex",
+              "ui:[&::-webkit-datetime-edit]:p-0",
+              "ui:[&::-webkit-datetime-edit-year-field]:p-0",
+              "ui:[&::-webkit-datetime-edit-month-field]:p-0",
+              "ui:[&::-webkit-datetime-edit-day-field]:p-0",
+              "ui:[&::-webkit-datetime-edit-hour-field]:p-0",
+              "ui:[&::-webkit-datetime-edit-minute-field]:p-0",
+              "ui:[&::-webkit-datetime-edit-second-field]:p-0",
+              "ui:[&::-webkit-datetime-edit-millisecond-field]:p-0",
+              "ui:[&::-webkit-datetime-edit-meridiem-field]:p-0",
             ],
           // Basic layout
-          'relative block w-full appearance-none rounded-lg px-[calc(--spacing(3.5)-1px)] py-[calc(--spacing(2.5)-1px)] sm:px-[calc(--spacing(3)-1px)] sm:py-[calc(--spacing(1.5)-1px)]',
+          "ui:relative ui:block ui:w-full ui:appearance-none ui:rounded-lg ui:px-[calc(--spacing(3.5)-1px)] ui:py-[calc(--spacing(2.5)-1px)] ui:sm:px-[calc(--spacing(3)-1px)] ui:sm:py-[calc(--spacing(1.5)-1px)]",
           // Typography
-          'text-base/6 text-zinc-950 placeholder:text-zinc-500 sm:text-sm/6 dark:text-white',
+          "ui:text-base/6 ui:text-zinc-950 ui:placeholder:text-zinc-500 ui:sm:text-sm/6 ui:dark:text-white",
           // Border
-          'border border-zinc-950/10 data-hover:border-zinc-950/20 dark:border-white/10 dark:data-hover:border-white/20',
+          "ui:border ui:border-zinc-950/10 ui:data-hover:border-zinc-950/20 ui:dark:border-white/10 ui:dark:data-hover:border-white/20",
           // Background color
-          'bg-transparent dark:bg-white/5',
+          "ui:bg-transparent ui:dark:bg-white/5",
           // Hide default focus styles
-          'focus:outline-hidden',
+          "ui:focus:outline-hidden",
           // Invalid state
-          'data-invalid:border-red-500 data-invalid:data-hover:border-red-500 dark:data-invalid:border-red-600 dark:data-invalid:data-hover:border-red-600',
+          "ui:data-invalid:border-red-500 ui:data-invalid:data-hover:border-red-500 ui:dark:data-invalid:border-red-600 ui:dark:data-invalid:data-hover:border-red-600",
           // Disabled state
-          'data-disabled:border-zinc-950/20 dark:data-disabled:border-white/15 dark:data-disabled:bg-white/2.5 dark:data-hover:data-disabled:border-white/15',
+          "ui:data-disabled:border-zinc-950/20 ui:dark:data-disabled:border-white/15 ui:dark:data-disabled:bg-white/2.5 ui:dark:data-hover:data-disabled:border-white/15",
           // System icons
-          'dark:scheme-dark',
+          "ui:dark:scheme-dark",
         ])}
       />
     </span>
-  )
-})
+  );
+});

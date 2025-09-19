@@ -8,7 +8,7 @@ import { TouchTarget } from './button'
 import { Link } from './link'
 
 export function Sidebar({ className, ...props }: React.ComponentPropsWithoutRef<'nav'>) {
-  return <nav {...props} className={clsx(className, 'flex h-full min-h-0 flex-col')} />
+  return <nav {...props} className={clsx(className, 'ui:flex ui:h-full ui:min-h-0 ui:flex-col')} />
 }
 
 export function SidebarHeader({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
@@ -17,7 +17,7 @@ export function SidebarHeader({ className, ...props }: React.ComponentPropsWitho
       {...props}
       className={clsx(
         className,
-        'flex flex-col border-b border-zinc-950/5 p-4 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5'
+        'ui:flex ui:flex-col ui:border-b ui:border-zinc-950/5 ui:p-4 ui:dark:border-white/5 ui:[&>[data-slot=section]+[data-slot=section]]:mt-2.5'
       )}
     />
   )
@@ -29,7 +29,7 @@ export function SidebarBody({ className, ...props }: React.ComponentPropsWithout
       {...props}
       className={clsx(
         className,
-        'flex flex-1 flex-col overflow-y-auto p-4 [&>[data-slot=section]+[data-slot=section]]:mt-8'
+        'ui:flex ui:flex-1 ui:flex-col ui:overflow-y-auto ui:p-4 ui:[&>[data-slot=section]+[data-slot=section]]:mt-8'
       )}
     />
   )
@@ -41,7 +41,7 @@ export function SidebarFooter({ className, ...props }: React.ComponentPropsWitho
       {...props}
       className={clsx(
         className,
-        'flex flex-col border-t border-zinc-950/5 p-4 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5'
+        'ui:flex ui:flex-col ui:border-t ui:border-zinc-950/5 ui:p-4 ui:dark:border-white/5 ui:[&>[data-slot=section]+[data-slot=section]]:mt-2.5'
       )}
     />
   )
@@ -52,22 +52,22 @@ export function SidebarSection({ className, ...props }: React.ComponentPropsWith
 
   return (
     <LayoutGroup id={id}>
-      <div {...props} data-slot="section" className={clsx(className, 'flex flex-col gap-0.5')} />
+      <div {...props} data-slot="section" className={clsx(className, 'ui:flex ui:flex-col ui:gap-0.5')} />
     </LayoutGroup>
   )
 }
 
 export function SidebarDivider({ className, ...props }: React.ComponentPropsWithoutRef<'hr'>) {
-  return <hr {...props} className={clsx(className, 'my-4 border-t border-zinc-950/5 lg:-mx-4 dark:border-white/5')} />
+  return <hr {...props} className={clsx(className, 'ui:my-4 ui:border-t ui:border-zinc-950/5 ui:lg:-mx-4 ui:dark:border-white/5')} />
 }
 
 export function SidebarSpacer({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
-  return <div aria-hidden="true" {...props} className={clsx(className, 'mt-8 flex-1')} />
+  return <div aria-hidden="true" {...props} className={clsx(className, 'ui:mt-8 ui:flex-1')} />
 }
 
 export function SidebarHeading({ className, ...props }: React.ComponentPropsWithoutRef<'h3'>) {
   return (
-    <h3 {...props} className={clsx(className, 'mb-1 px-2 text-xs/6 font-medium text-zinc-500 dark:text-zinc-400')} />
+    <h3 {...props} className={clsx(className, 'ui:mb-1 ui:px-2 ui:text-xs/6 ui:font-medium ui:text-zinc-500 ui:dark:text-zinc-400')} />
   )
 }
 
@@ -85,32 +85,32 @@ export const SidebarItem = forwardRef(function SidebarItem(
 ) {
   let classes = clsx(
     // Base
-    'flex w-full items-center gap-3 rounded-lg px-2 py-2.5 text-left text-base/6 font-medium text-zinc-950 sm:py-2 sm:text-sm/5',
+    'ui:flex ui:w-full ui:items-center ui:gap-3 ui:rounded-lg ui:px-2 ui:py-2.5 ui:text-left ui:text-base/6 ui:font-medium ui:text-zinc-950 ui:sm:py-2 ui:sm:text-sm/5',
     // Leading icon/icon-only
-    '*:data-[slot=icon]:size-6 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:fill-zinc-500 sm:*:data-[slot=icon]:size-5',
+    'ui:*:data-[slot=icon]:size-6 ui:*:data-[slot=icon]:shrink-0 ui:*:data-[slot=icon]:fill-zinc-500 ui:sm:*:data-[slot=icon]:size-5',
     // Trailing icon (down chevron or similar)
-    '*:last:data-[slot=icon]:ml-auto *:last:data-[slot=icon]:size-5 sm:*:last:data-[slot=icon]:size-4',
+    'ui:*:last:data-[slot=icon]:ml-auto ui:*:last:data-[slot=icon]:size-5 ui:sm:*:last:data-[slot=icon]:size-4',
     // Avatar
-    '*:data-[slot=avatar]:-m-0.5 *:data-[slot=avatar]:size-7 sm:*:data-[slot=avatar]:size-6',
+    'ui:*:data-[slot=avatar]:-m-0.5 ui:*:data-[slot=avatar]:size-7 ui:sm:*:data-[slot=avatar]:size-6',
     // Hover
-    'data-hover:bg-zinc-950/5 data-hover:*:data-[slot=icon]:fill-zinc-950',
+    'ui:data-hover:bg-zinc-950/5 ui:data-hover:*:data-[slot=icon]:fill-zinc-950',
     // Active
-    'data-active:bg-zinc-950/5 data-active:*:data-[slot=icon]:fill-zinc-950',
+    'ui:data-active:bg-zinc-950/5 ui:data-active:*:data-[slot=icon]:fill-zinc-950',
     // Current
-    'data-current:*:data-[slot=icon]:fill-zinc-950',
+    'ui:data-current:*:data-[slot=icon]:fill-zinc-950',
     // Dark mode
-    'dark:text-white dark:*:data-[slot=icon]:fill-zinc-400',
-    'dark:data-hover:bg-white/5 dark:data-hover:*:data-[slot=icon]:fill-white',
-    'dark:data-active:bg-white/5 dark:data-active:*:data-[slot=icon]:fill-white',
-    'dark:data-current:*:data-[slot=icon]:fill-white'
+    'ui:dark:text-white ui:dark:*:data-[slot=icon]:fill-zinc-400',
+    'ui:dark:data-hover:bg-white/5 ui:dark:data-hover:*:data-[slot=icon]:fill-white',
+    'ui:dark:data-active:bg-white/5 ui:dark:data-active:*:data-[slot=icon]:fill-white',
+    'ui:dark:data-current:*:data-[slot=icon]:fill-white'
   )
 
   return (
-    <span className={clsx(className, 'relative')}>
+    <span className={clsx(className, 'ui:relative')}>
       {current && (
         <motion.span
           layoutId="current-indicator"
-          className="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
+          className="ui:absolute ui:inset-y-2 ui:-left-4 ui:w-0.5 ui:rounded-full ui:bg-zinc-950 ui:dark:bg-white"
         />
       )}
       {typeof props.href === 'string' ? (
@@ -126,7 +126,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
       ) : (
         <Headless.Button
           {...props}
-          className={clsx('cursor-default', classes)}
+          className={clsx('ui:cursor-default', classes)}
           data-current={current ? 'true' : undefined}
           ref={ref}
         >
@@ -138,5 +138,5 @@ export const SidebarItem = forwardRef(function SidebarItem(
 })
 
 export function SidebarLabel({ className, ...props }: React.ComponentPropsWithoutRef<'span'>) {
-  return <span {...props} className={clsx(className, 'truncate')} />
+  return <span {...props} className={clsx(className, 'ui:truncate')} />
 }

@@ -1,23 +1,23 @@
-'use client'
+"use client";
 
-import * as Headless from '@headlessui/react'
-import clsx from 'clsx'
-import { Fragment } from 'react'
+import * as Headless from "@headlessui/react";
+import clsx from "clsx";
+import { Fragment } from "react";
 
 export function Listbox<T>({
   className,
   placeholder,
   autoFocus,
-  'aria-label': ariaLabel,
+  "aria-label": ariaLabel,
   children: options,
   ...props
 }: {
-  className?: string
-  placeholder?: React.ReactNode
-  autoFocus?: boolean
-  'aria-label'?: string
-  children?: React.ReactNode
-} & Omit<Headless.ListboxProps<typeof Fragment, T>, 'as' | 'multiple'>) {
+  className?: string;
+  placeholder?: React.ReactNode;
+  autoFocus?: boolean;
+  "aria-label"?: string;
+  children?: React.ReactNode;
+} & Omit<Headless.ListboxProps<typeof Fragment, T>, "as" | "multiple">) {
   return (
     <Headless.Listbox {...props} multiple={false}>
       <Headless.ListboxButton
@@ -27,51 +27,67 @@ export function Listbox<T>({
         className={clsx([
           className,
           // Basic layout
-          'group relative block w-full',
+          "ui:group ui:relative ui:block ui:w-full",
           // Background color + shadow applied to inset pseudo element, so shadow blends with border in light mode
-          'before:absolute before:inset-px before:rounded-[calc(var(--radius-lg)-1px)] before:bg-white before:shadow-sm',
+          "ui:before:absolute ui:before:inset-px ui:before:rounded-[calc(var(--radius-lg)-1px)] ui:before:bg-white ui:before:shadow-sm",
           // Background color is moved to control and shadow is removed in dark mode so hide `before` pseudo
-          'dark:before:hidden',
+          "ui:dark:before:hidden",
           // Hide default focus styles
-          'focus:outline-hidden',
+          "ui:focus:outline-hidden",
           // Focus ring
-          'after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-transparent after:ring-inset data-focus:after:ring-2 data-focus:after:ring-blue-500',
+          "ui:after:pointer-events-none ui:after:absolute ui:after:inset-0 ui:after:rounded-lg ui:after:ring-transparent ui:after:ring-inset ui:data-focus:after:ring-2 ui:data-focus:after:ring-blue-500",
           // Disabled state
-          'data-disabled:opacity-50 data-disabled:before:bg-zinc-950/5 data-disabled:before:shadow-none',
+          "ui:data-disabled:opacity-50 ui:data-disabled:before:bg-zinc-950/5 ui:data-disabled:before:shadow-none",
         ])}
       >
         <Headless.ListboxSelectedOption
           as="span"
           options={options}
-          placeholder={placeholder && <span className="block truncate text-zinc-500">{placeholder}</span>}
+          placeholder={
+            placeholder && (
+              <span className="ui:block ui:truncate ui:text-zinc-500">
+                {placeholder}
+              </span>
+            )
+          }
           className={clsx([
             // Basic layout
-            'relative block w-full appearance-none rounded-lg py-[calc(--spacing(2.5)-1px)] sm:py-[calc(--spacing(1.5)-1px)]',
+            "ui:relative ui:block ui:w-full ui:appearance-none ui:rounded-lg ui:py-[calc(--spacing(2.5)-1px)] ui:sm:py-[calc(--spacing(1.5)-1px)]",
             // Set minimum height for when no value is selected
-            'min-h-11 sm:min-h-9',
+            "ui:min-h-11 ui:sm:min-h-9",
             // Horizontal padding
-            'pr-[calc(--spacing(7)-1px)] pl-[calc(--spacing(3.5)-1px)] sm:pl-[calc(--spacing(3)-1px)]',
+            "ui:pr-[calc(--spacing(7)-1px)] ui:pl-[calc(--spacing(3.5)-1px)] ui:sm:pl-[calc(--spacing(3)-1px)]",
             // Typography
-            'text-left text-base/6 text-zinc-950 placeholder:text-zinc-500 sm:text-sm/6 dark:text-white forced-colors:text-[CanvasText]',
+            "ui:text-left ui:text-base/6 ui:text-zinc-950 ui:placeholder:text-zinc-500 ui:sm:text-sm/6 ui:dark:text-white ui:forced-colors:text-[CanvasText]",
             // Border
-            'border border-zinc-950/10 group-data-active:border-zinc-950/20 group-data-hover:border-zinc-950/20 dark:border-white/10 dark:group-data-active:border-white/20 dark:group-data-hover:border-white/20',
+            "ui:border ui:border-zinc-950/10 ui:group-data-active:border-zinc-950/20 ui:group-data-hover:border-zinc-950/20 ui:dark:border-white/10 ui:dark:group-data-active:border-white/20 ui:dark:group-data-hover:border-white/20",
             // Background color
-            'bg-transparent dark:bg-white/5',
+            "ui:bg-transparent ui:dark:bg-white/5",
             // Invalid state
-            'group-data-invalid:border-red-500 group-data-hover:group-data-invalid:border-red-500 dark:group-data-invalid:border-red-600 dark:data-hover:group-data-invalid:border-red-600',
+            "ui:group-data-invalid:border-red-500 ui:group-data-hover:group-data-invalid:border-red-500 ui:dark:group-data-invalid:border-red-600 ui:dark:data-hover:group-data-invalid:border-red-600",
             // Disabled state
-            'group-data-disabled:border-zinc-950/20 group-data-disabled:opacity-100 dark:group-data-disabled:border-white/15 dark:group-data-disabled:bg-white/2.5 dark:group-data-disabled:data-hover:border-white/15',
+            "ui:group-data-disabled:border-zinc-950/20 ui:group-data-disabled:opacity-100 ui:dark:group-data-disabled:border-white/15 ui:dark:group-data-disabled:bg-white/2.5 ui:dark:group-data-disabled:data-hover:border-white/15",
           ])}
         />
-        <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+        <span className="ui:pointer-events-none ui:absolute ui:inset-y-0 ui:right-0 ui:flex ui:items-center ui:pr-2">
           <svg
-            className="size-5 stroke-zinc-500 group-data-disabled:stroke-zinc-600 sm:size-4 dark:stroke-zinc-400 forced-colors:stroke-[CanvasText]"
+            className="ui:size-5 ui:stroke-zinc-500 ui:group-data-disabled:stroke-zinc-600 ui:sm:size-4 ui:dark:stroke-zinc-400 ui:forced-colors:stroke-[CanvasText]"
             viewBox="0 0 16 16"
             aria-hidden="true"
             fill="none"
           >
-            <path d="M5.75 10.75L8 13L10.25 10.75" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M10.25 5.25L8 3L5.75 5.25" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
+            <path
+              d="M5.75 10.75L8 13L10.25 10.75"
+              strokeWidth={1.5}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M10.25 5.25L8 3L5.75 5.25"
+              strokeWidth={1.5}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </span>
       </Headless.ListboxButton>
@@ -80,25 +96,25 @@ export function Listbox<T>({
         anchor="selection start"
         className={clsx(
           // Anchor positioning
-          '[--anchor-offset:-1.625rem] [--anchor-padding:--spacing(4)] sm:[--anchor-offset:-1.375rem]',
+          "ui:[--anchor-offset:-1.625rem] ui:[--anchor-padding:--spacing(4)] ui:sm:[--anchor-offset:-1.375rem]",
           // Base styles
-          'isolate w-max min-w-[calc(var(--button-width)+1.75rem)] scroll-py-1 rounded-xl p-1 select-none',
+          "ui:isolate ui:w-max ui:min-w-[calc(var(--button-width)+1.75rem)] ui:scroll-py-1 ui:rounded-xl ui:p-1 ui:select-none",
           // Invisible border that is only visible in `forced-colors` mode for accessibility purposes
-          'outline outline-transparent focus:outline-hidden',
+          "ui:outline ui:outline-transparent ui:focus:outline-hidden",
           // Handle scrolling when menu won't fit in viewport
-          'overflow-y-scroll overscroll-contain',
+          "ui:overflow-y-scroll ui:overscroll-contain",
           // Popover background
-          'bg-white/75 backdrop-blur-xl dark:bg-zinc-800/75',
+          "ui:bg-white/75 ui:backdrop-blur-xl ui:dark:bg-zinc-800/75",
           // Shadows
-          'shadow-lg ring-1 ring-zinc-950/10 dark:ring-white/10 dark:ring-inset',
+          "ui:shadow-lg ui:ring-1 ui:ring-zinc-950/10 ui:dark:ring-white/10 ui:dark:ring-inset",
           // Transitions
-          'transition-opacity duration-100 ease-in data-closed:data-leave:opacity-0 data-transition:pointer-events-none'
+          "ui:transition-opacity ui:duration-100 ui:ease-in ui:data-closed:data-leave:opacity-0 ui:data-transition:pointer-events-none",
         )}
       >
         {options}
       </Headless.ListboxOptions>
     </Headless.Listbox>
-  )
+  );
 }
 
 export function ListboxOption<T>({
@@ -106,72 +122,96 @@ export function ListboxOption<T>({
   className,
   ...props
 }: { className?: string; children?: React.ReactNode } & Omit<
-  Headless.ListboxOptionProps<'div', T>,
-  'as' | 'className'
+  Headless.ListboxOptionProps<"div", T>,
+  "as" | "className"
 >) {
   let sharedClasses = clsx(
     // Base
-    'flex min-w-0 items-center',
+    "ui:flex ui:min-w-0 ui:items-center",
     // Icons
-    '*:data-[slot=icon]:size-5 *:data-[slot=icon]:shrink-0 sm:*:data-[slot=icon]:size-4',
-    '*:data-[slot=icon]:text-zinc-500 group-data-focus/option:*:data-[slot=icon]:text-white dark:*:data-[slot=icon]:text-zinc-400',
-    'forced-colors:*:data-[slot=icon]:text-[CanvasText] forced-colors:group-data-focus/option:*:data-[slot=icon]:text-[Canvas]',
+    "ui:*:data-[slot=icon]:size-5 ui:*:data-[slot=icon]:shrink-0 ui:sm:*:data-[slot=icon]:size-4",
+    "ui:*:data-[slot=icon]:text-zinc-500 ui:group-data-focus/option:*:data-[slot=icon]:text-white ui:dark:*:data-[slot=icon]:text-zinc-400",
+    "ui:forced-colors:*:data-[slot=icon]:text-[CanvasText] ui:forced-colors:group-data-focus/option:*:data-[slot=icon]:text-[Canvas]",
     // Avatars
-    '*:data-[slot=avatar]:-mx-0.5 *:data-[slot=avatar]:size-6 sm:*:data-[slot=avatar]:size-5'
-  )
+    "ui:*:data-[slot=avatar]:-mx-0.5 ui:*:data-[slot=avatar]:size-6 ui:sm:*:data-[slot=avatar]:size-5",
+  );
 
   return (
     <Headless.ListboxOption as={Fragment} {...props}>
       {({ selectedOption }) => {
         if (selectedOption) {
-          return <div className={clsx(className, sharedClasses)}>{children}</div>
+          return (
+            <div className={clsx(className, sharedClasses)}>{children}</div>
+          );
         }
 
         return (
           <div
             className={clsx(
               // Basic layout
-              'group/option grid cursor-default grid-cols-[--spacing(5)_1fr] items-baseline gap-x-2 rounded-lg py-2.5 pr-3.5 pl-2 sm:grid-cols-[--spacing(4)_1fr] sm:py-1.5 sm:pr-3 sm:pl-1.5',
+              "ui:group/option ui:grid ui:cursor-default ui:grid-cols-[--spacing(5)_1fr] ui:items-baseline ui:gap-x-2 ui:rounded-lg ui:py-2.5 ui:pr-3.5 ui:pl-2 ui:sm:grid-cols-[--spacing(4)_1fr] ui:sm:py-1.5 ui:sm:pr-3 ui:sm:pl-1.5",
               // Typography
-              'text-base/6 text-zinc-950 sm:text-sm/6 dark:text-white forced-colors:text-[CanvasText]',
+              "ui:text-base/6 ui:text-zinc-950 ui:sm:text-sm/6 ui:dark:text-white ui:forced-colors:text-[CanvasText]",
               // Focus
-              'outline-hidden data-focus:bg-blue-500 data-focus:text-white',
+              "ui:outline-hidden ui:data-focus:bg-blue-500 ui:data-focus:text-white",
               // Forced colors mode
-              'forced-color-adjust-none forced-colors:data-focus:bg-[Highlight] forced-colors:data-focus:text-[HighlightText]',
+              "ui:forced-color-adjust-none ui:forced-colors:data-focus:bg-[Highlight] ui:forced-colors:data-focus:text-[HighlightText]",
               // Disabled
-              'data-disabled:opacity-50'
+              "ui:data-disabled:opacity-50",
             )}
           >
             <svg
-              className="relative hidden size-5 self-center stroke-current group-data-selected/option:inline sm:size-4"
+              className="ui:relative ui:hidden ui:size-5 ui:self-center ui:stroke-current ui:group-data-selected/option:inline ui:sm:size-4"
               viewBox="0 0 16 16"
               fill="none"
               aria-hidden="true"
             >
-              <path d="M4 8.5l3 3L12 4" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M4 8.5l3 3L12 4"
+                strokeWidth={1.5}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
-            <span className={clsx(className, sharedClasses, 'col-start-2')}>{children}</span>
+            <span className={clsx(className, sharedClasses, "ui:col-start-2")}>
+              {children}
+            </span>
           </div>
-        )
+        );
       }}
     </Headless.ListboxOption>
-  )
+  );
 }
 
-export function ListboxLabel({ className, ...props }: React.ComponentPropsWithoutRef<'span'>) {
-  return <span {...props} className={clsx(className, 'ml-2.5 truncate first:ml-0 sm:ml-2 sm:first:ml-0')} />
-}
-
-export function ListboxDescription({ className, children, ...props }: React.ComponentPropsWithoutRef<'span'>) {
+export function ListboxLabel({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<"span">) {
   return (
     <span
       {...props}
       className={clsx(
         className,
-        'flex flex-1 overflow-hidden text-zinc-500 group-data-focus/option:text-white before:w-2 before:min-w-0 before:shrink dark:text-zinc-400'
+        "ui:ml-2.5 ui:truncate ui:first:ml-0 ui:sm:ml-2 ui:sm:first:ml-0",
+      )}
+    />
+  );
+}
+
+export function ListboxDescription({
+  className,
+  children,
+  ...props
+}: React.ComponentPropsWithoutRef<"span">) {
+  return (
+    <span
+      {...props}
+      className={clsx(
+        className,
+        "ui:flex ui:flex-1 ui:overflow-hidden ui:text-zinc-500 ui:group-data-focus/option:text-white ui:before:w-2 ui:before:min-w-0 ui:before:shrink ui:dark:text-zinc-400",
       )}
     >
-      <span className="flex-1 truncate">{children}</span>
+      <span className="ui:flex-1 ui:truncate">{children}</span>
     </span>
-  )
+  );
 }

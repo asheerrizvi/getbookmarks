@@ -8,7 +8,7 @@ import { prefix, render, route } from "rwsdk/router";
 import { defineApp, ErrorResponse } from "rwsdk/worker";
 import { Session } from "./session/durableObject";
 import { sessions, setupSessionStore } from "./session/store";
-import { Button } from "@repo/ui/button";
+import { Card } from "@repo/ui/card";
 export { SessionDurableObject } from "./session/durableObject";
 
 export type AppContext = {
@@ -48,7 +48,11 @@ export default defineApp([
   },
   render(Document, [
     route("/", () => {
-      return <Button className="text-red-800">Save changes</Button>;
+      return (
+        <Card title="Hello!" href="https://google.com">
+          Hello World!
+        </Card>
+      );
     }),
     route("/protected", [
       ({ ctx }) => {

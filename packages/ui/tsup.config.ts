@@ -1,7 +1,7 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig((options) => ({
-  entry: ["src/button.tsx", "src/link.tsx"],
+  entry: ["src/card.tsx"],
   format: ["cjs", "esm"],
   dts: true,
   external: ["react"],

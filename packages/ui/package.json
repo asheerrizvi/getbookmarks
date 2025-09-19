@@ -9,15 +9,10 @@
   ],
   "exports": {
     "./styles.css": "./dist/index.css",
-    "./button": {
-      "types": "./src/button.tsx",
-      "import": "./dist/button.mjs",
-      "require": "./dist/button.js"
-    },
-    "./link": {
-      "types": "./src/link.tsx",
-      "import": "./dist/link.mjs",
-      "require": "./dist/link.js"
+    "./card": {
+      "types": "./src/card.tsx",
+      "import": "./dist/card.mjs",
+      "require": "./dist/card.js"
     }
   },
   "license": "MIT",

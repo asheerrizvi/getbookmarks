@@ -48,7 +48,7 @@ export default defineApp([
   },
   render(Document, [
     route("/", () => {
-      return <Button>Save changes</Button>;
+      return <Button className="text-red-800">Save changes</Button>;
     }),
     route("/protected", [
       ({ ctx }) => {

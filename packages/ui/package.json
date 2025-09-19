@@ -10,12 +10,12 @@
   "exports": {
     "./styles.css": "./dist/index.css",
     "./button": {
-      "types": "./dist/button.d.ts",
+      "types": "./src/button.tsx",
       "import": "./dist/button.mjs",
       "require": "./dist/button.js"
     },
     "./link": {
-      "types": "./dist/link.d.ts",
+      "types": "./src/link.tsx",
       "import": "./dist/link.mjs",
       "require": "./dist/link.js"
     }

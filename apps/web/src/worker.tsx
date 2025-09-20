@@ -8,7 +8,6 @@ import { prefix, render, route } from "rwsdk/router";
 import { defineApp, ErrorResponse } from "rwsdk/worker";
 import { Session } from "./session/durableObject";
 import { sessions, setupSessionStore } from "./session/store";
-import { Card } from "@repo/ui/card";
 export { SessionDurableObject } from "./session/durableObject";
 
 export type AppContext = {

@@ -9,140 +9,15 @@
   ],
   "exports": {
     "./styles.css": "./dist/index.css",
-    "./alert": {
-      "types": "./src/alert.tsx",
-      "import": "./dist/alert.mjs",
-      "require": "./dist/alert.js"
-    },
-    "./auth-layout": {
-      "types": "./src/auth-layout.tsx",
-      "import": "./dist/auth-layout.mjs",
-      "require": "./dist/auth-layout.js"
-    },
-    "./avatar": {
-      "types": "./src/avatar.tsx",
-      "import": "./dist/avatar.mjs",
-      "require": "./dist/avatar.js"
-    },
-    "./badge": {
-      "types": "./src/badge.tsx",
-      "import": "./dist/badge.mjs",
-      "require": "./dist/badge.js"
-    },
     "./button": {
       "types": "./src/button.tsx",
       "import": "./dist/button.mjs",
       "require": "./dist/button.js"
     },
-    "./checkbox": {
-      "types": "./src/checkbox.tsx",
-      "import": "./dist/checkbox.mjs",
-      "require": "./dist/checkbox.js"
-    },
-    "./combobox": {
-      "types": "./src/combobox.tsx",
-      "import": "./dist/combobox.mjs",
-      "require": "./dist/combobox.js"
-    },
-    "./description-list": {
-      "types": "./src/description-list.tsx",
-      "import": "./dist/description-list.mjs",
-      "require": "./dist/description-list.js"
-    },
-    "./dialog": {
-      "types": "./src/dialog.tsx",
-      "import": "./dist/dialog.mjs",
-      "require": "./dist/dialog.js"
-    },
-    "./divider": {
-      "types": "./src/divider.tsx",
-      "import": "./dist/divider.mjs",
-      "require": "./dist/divider.js"
-    },
-    "./dropdown": {
-      "types": "./src/dropdown.tsx",
-      "import": "./dist/dropdown.mjs",
-      "require": "./dist/dropdown.js"
-    },
-    "./fieldset": {
-      "types": "./src/fieldset.tsx",
-      "import": "./dist/fieldset.mjs",
-      "require": "./dist/fieldset.js"
-    },
-    "./heading": {
-      "types": "./src/heading.tsx",
-      "import": "./dist/heading.mjs",
-      "require": "./dist/heading.js"
-    },
-    "./input": {
-      "types": "./src/input.tsx",
-      "import": "./dist/input.mjs",
-      "require": "./dist/input.js"
-    },
     "./link": {
       "types": "./src/link.tsx",
       "import": "./dist/link.mjs",
       "require": "./dist/link.js"
-    },
-    "./listbox": {
-      "types": "./src/listbox.tsx",
-      "import": "./dist/listbox.mjs",
-      "require": "./dist/listbox.js"
-    },
-    "./navbar": {
-      "types": "./src/navbar.tsx",
-      "import": "./dist/navbar.mjs",
-      "require": "./dist/navbar.js"
-    },
-    "./pagination": {
-      "types": "./src/pagination.tsx",
-      "import": "./dist/pagination.mjs",
-      "require": "./dist/pagination.js"
-    },
-    "./radio": {
-      "types": "./src/radio.tsx",
-      "import": "./dist/radio.mjs",
-      "require": "./dist/radio.js"
-    },
-    "./select": {
-      "types": "./src/select.tsx",
-      "import": "./dist/select.mjs",
-      "require": "./dist/select.js"
-    },
-    "./sidebar-layout": {
-      "types": "./src/sidebar-layout.tsx",
-      "import": "./dist/sidebar-layout.mjs",
-      "require": "./dist/sidebar-layout.js"
-    },
-    "./sidebar": {
-      "types": "./src/sidebar.tsx",
-      "import": "./dist/sidebar.mjs",
-      "require": "./dist/sidebar.js"
-    },
-    "./stacked-layout": {
-      "types": "./src/stacked-layout.tsx",
-      "import": "./dist/stacked-layout.mjs",
-      "require": "./dist/stacked-layout.js"
-    },
-    "./switch": {
-      "types": "./src/switch.tsx",
-      "import": "./dist/switch.mjs",
-      "require": "./dist/switch.js"
-    },
-    "./table": {
-      "types": "./src/table.tsx",
-      "import": "./dist/table.mjs",
-      "require": "./dist/table.js"
-    },
-    "./text": {
-      "types": "./src/text.tsx",
-      "import": "./dist/text.mjs",
-      "require": "./dist/text.js"
-    },
-    "./textarea": {
-      "types": "./src/textarea.tsx",
-      "import": "./dist/textarea.mjs",
-      "require": "./dist/textarea.js"
     }
   },
   "license": "MIT",
